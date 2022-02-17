@@ -31,28 +31,94 @@ void printVec(const VecInt& vecInt);
 // condition is TRUE when element is NOT FOUND
 //if (mapCount.find(key) == mapCount.end())
 
-std::map<int, size_t> fillMap(...)
+std::map<int, size_t> fillMap(const VecInt& vec) // input argument is vector
 {
     int key = 0;
     size_t value = 1;
     std::map<int, size_t> mapCount;
     // code
+    //    mapCount[key] = 1;    - just examples
+    //    mapCount[key] += 1;
     
-//    mapCount[key] = value;
-    mapCount[key] += 1;
+    for (int x : vec)
+    {
+        
+    }
     
-    mapCount.insert({key, value});
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        int x = vec[i];
+        
+    }
+    
+    for (int x : vec)
+    {
+        if (...)
+        {
+            // something if true
+        }
+        else
+        {
+            // something if false
+        }
+    }
+    return ....;
+    
+    
 }
 
-//void printMap(const MapInt& mapInt)
+void printMap(const std::map<int, size_t>& mapInt)
+{
+    for (std::pair<int, size_t> x : mapVariable)
+    {
+        x.first;
+        x.second;
+    }
+    for (const std::pair<const int, size_t>& x : mapVariable)
+    {
+        x.first;
+        x.second;
+    }
+    
+    for (std::map<int, size_t>::const_iterator it = mapInt.cbegin(); it != mapInt.cend(); ++it)
+    {
+        it->first;
+        it->second;
+    }
+    // {}
+    // x.first - key
+    // x.second - value
+}
+// for (int x : vec) {}
 
-// for (int x : vec)
-// for (std::pair<int, size_t> x: mapVariable)
-// x.first - key
-// x.second - value
+
+bool checkIndex(std::map<int, size_t> map1, int key, size_t& value)
+{
+    
+    value = map[key];
+}
+
+int square(int x)
+{
+    int y = x*x;
+    cout << y;
+    return y;
+}
 
 int main()
 {
+    int a = 10;
+    int b = square(a);
+    
+    
+    std::map<int, size_t> map1;
+    int key = 0;
+    size_t value = 1;
+    bool found = checkIndex(map1, key, value);
+    cout << value;
+    
+    std::string buffer;
+    std::getline(cin, buffer);
     cout << "Hello World!" << endl;
     return 0;
 }
