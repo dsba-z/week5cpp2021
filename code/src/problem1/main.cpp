@@ -3,6 +3,7 @@
 #include <random>
 #include <ctime>
 #include <map>
+#include <set>
 
 using std::cout;
 using std::cin;
@@ -54,18 +55,44 @@ MapInt fillMap(...)
 //    }
 }
 
+std::pair<std::multimap<int, size_t>::iterator,
+          std::multimap<int, size_t>::iterator> a;
+
 //void printMap(const MapInt& mapInt)
 
+// version 1
+std::set<int> makeSet(const VecInt& vec)
+{
+    std::set<int> newSet;
+    // make a loop through vec
+    // add all elements to set
+}
+
+// version 2
+std::set<int> makeSet(const MapInt& myMap)
+{
+    std::set<int> newSet;
+    // make a loop through myMap
+    // add all keys to set
+}
+
+// printing:
+// for (int x : mySet)
+// {
+//     // print
+// }
 
 // x.first
 // x.second
 
-// for (int x : vec)
+// 
 
 
 
 int main()
 {
+    int a = 1 + \
+    2;
     cout << "Hello World!" << endl;
     return 0;
 }
