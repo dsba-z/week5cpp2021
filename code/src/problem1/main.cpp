@@ -31,21 +31,21 @@ void printVec(const VecInt& vecInt);
 typedef std::map<int, size_t> MapInt;
 
 
-bool checkKey(const MapInt& m, int key, size_t& value)
-{
-    value = 0;
+//bool checkKey(const MapInt& m, int key, size_t& value)
+//{
+//    value = 0;
     
-    if (key in m)
-    {
-//        value = m[key];   - does not work for const
-        value = m.at(key);
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
+//    if (key in m)
+//    {
+////        value = m[key];   - does not work for const
+//        value = m.at(key);
+//        return true;
+//    }
+//    else
+//    {
+//        return false;
+//    }
+//}
 
 
 MapInt fillMap(...)
@@ -53,7 +53,7 @@ MapInt fillMap(...)
     MapInt mapCount;
     int key = 0;
     size_t value = 1;
-    mapCount[key] = value;
+    mapCount[key] = 1;
     mapCount[key] += 1;
     
     // alternative
@@ -76,10 +76,26 @@ MapInt fillMap(...)
 
 //void printMap(const MapInt& mapInt)
 
+//it->first
+// (*it).first
 
+int square(int x)
+{
+    int y = x*x;
+    return y;
+}
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    int a = 3;
+    int b = square(a);
+    
+    cout << std::boolalpha;
+    cout << true << "\n";
+    cout << true << "\n";
+    cout << std::noboolalpha;
+    cout << true << "\n";
+    cout << true << "\n";
+    
     return 0;
 }
