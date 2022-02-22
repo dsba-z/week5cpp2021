@@ -104,6 +104,8 @@ std::set<int> makeSet(const std::map<int, size_t>& myMap)
     // add them to mySet
 }
 
+std::pair<std::multimap<int ,size_t>::iterator,
+          std::multimap<int ,size_t>::iterator> a;
 // loop through maps:
 // for (const std::pair<const int, size_t>& x : mapCount)
 
@@ -115,11 +117,16 @@ int square(int x)
 
 int main()
 {
+    
+    for (std::multimap<int, size_t>::iterator it = it1; it != it2; ++it)
+    {
+        
+    }
     int a = 3;
     int b = square(a);
     
     VecInt v = generateVector(15, -4, 9);
-    
+    printVec(v);
     
     return 0;
 }
