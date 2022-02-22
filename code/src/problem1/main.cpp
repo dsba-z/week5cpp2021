@@ -3,6 +3,7 @@
 #include <random>
 #include <ctime>
 #include <map>
+#include <set>
 
 using std::cout;
 using std::cin;
@@ -20,13 +21,23 @@ VecInt generateVector(size_t n, int rangeStart, int rangeEnd)
     
     // now use the function call distr(gen) whenever you need a new randon number
     // for example:
-    int rNum1 = distr(gen);
-    int rNum2 = distr(gen);
-    // these will be two different random numbers
+    VecInt vec;
+    
+    for (int i = 0; i < n; ++i)
+    {
+        vec.push_back(distr(gen));
+    }
+    return vec;
 }
 
 // consider using range-based loops for printing
-void printVec(const VecInt& vecInt);
+void printVec(const VecInt& vecInt)
+{
+    for (int x : vecInt)
+    {
+        cout << x << std::endl;
+    }
+}
 
 typedef std::map<int, size_t> MapInt;
 
@@ -79,6 +90,23 @@ MapInt fillMap(...)
 //it->first
 // (*it).first
 
+std::set<int> makeSet(const std::vector<int>& vec)
+{
+    std::set<int> mySet;
+    // go through all elements of vec
+    // add them to mySet
+}
+
+std::set<int> makeSet(const std::map<int, size_t>& myMap)
+{
+    std::set<int> mySet;
+    // go through all keys of myMap
+    // add them to mySet
+}
+
+// loop through maps:
+// for (const std::pair<const int, size_t>& x : mapCount)
+
 int square(int x)
 {
     int y = x*x;
@@ -90,12 +118,8 @@ int main()
     int a = 3;
     int b = square(a);
     
-    cout << std::boolalpha;
-    cout << true << "\n";
-    cout << true << "\n";
-    cout << std::noboolalpha;
-    cout << true << "\n";
-    cout << true << "\n";
+    VecInt v = generateVector(15, -4, 9);
+    
     
     return 0;
 }
