@@ -2,6 +2,7 @@
 #include <vector>
 #include <random>
 #include <map>
+#include <set>
 
 using std::cout;
 using std::cin;
@@ -31,41 +32,41 @@ void printVec(const VecInt& vecInt);
 // condition is TRUE when element is NOT FOUND
 //if (mapCount.find(key) == mapCount.end())
 
-std::map<int, size_t> fillMap(const VecInt& vec) // input argument is vector
-{
-    int key = 0;
-    size_t value = 1;
-    std::map<int, size_t> mapCount;
-    // code
-    //    mapCount[key] = 1;    - just examples
-    //    mapCount[key] += 1;
+//std::map<int, size_t> fillMap(const VecInt& vec) // input argument is vector
+//{
+//    int key = 0;
+//    size_t value = 1;
+//    std::map<int, size_t> mapCount;
+//    // code
+//    //    mapCount[key] = 1;    - just examples
+//    //    mapCount[key] += 1;
     
-    for (int x : vec)
-    {
+//    for (int x : vec)
+//    {
         
-    }
+//    }
     
-    for (int i = 0; i < vec.size(); ++i)
-    {
-        int x = vec[i];
+//    for (int i = 0; i < vec.size(); ++i)
+//    {
+//        int x = vec[i];
         
-    }
+//    }
     
-    for (int x : vec)
-    {
-        if (...)
-        {
-            // something if true
-        }
-        else
-        {
-            // something if false
-        }
-    }
-    return ....;
+//    for (int x : vec)
+//    {
+//        if (...)
+//        {
+//            // something if true
+//        }
+//        else
+//        {
+//            // something if false
+//        }
+//    }
+//    return ....;
     
     
-}
+//}
 
 void printMap(const std::map<int, size_t>& mapInt)
 {
@@ -92,11 +93,11 @@ void printMap(const std::map<int, size_t>& mapInt)
 // for (int x : vec) {}
 
 
-bool checkIndex(std::map<int, size_t> map1, int key, size_t& value)
-{
+//bool checkIndex(std::map<int, size_t> map1, int key, size_t& value)
+//{
     
-    value = map[key];
-}
+//    value = map[key];
+//}
 
 int square(int x)
 {
@@ -104,6 +105,44 @@ int square(int x)
     cout << y;
     return y;
 }
+
+// github.com/dsba-z/workshops
+
+#include <set>
+
+//for (std::map<int, size_t>::const_iterator it = mapInt.cbegin(); it != mapInt.cend(); ++it)
+
+//for (const std::pair<const int, size_t>& x : mapVariable)
+//{
+//    x.first;
+//    x.second;
+//}
+
+void printSet(const std::set<int>& mySet)
+{
+    for (int x : mySet)
+    {
+        // do something with x
+    }
+}
+
+// version 1
+std::set<int> makeSet(const std::vector<int>& vec)
+{
+    std::set<int> newSet;
+    // loop through all elements
+    // add elements to set
+    
+}
+
+// version 2
+std::set<int> makeSet(const std::map<int, size_t>& m)
+{
+    std::set<int> newSet;
+    // loop through all elements
+    // add keys to set
+}
+
 
 int main()
 {
@@ -114,7 +153,7 @@ int main()
     std::map<int, size_t> map1;
     int key = 0;
     size_t value = 1;
-    bool found = checkIndex(map1, key, value);
+//    bool found = checkIndex(map1, key, value);
     cout << value;
     
     std::string buffer;
