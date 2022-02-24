@@ -4,6 +4,8 @@
 #include <ctime>
 #include <map>
 #include <set>
+#include <unordered_map>
+#include <algorithm>
 
 using std::cout;
 using std::cin;
@@ -19,16 +21,21 @@ VecInt generateVector(size_t n, int rangeStart, int rangeEnd)
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> distr(rangeStart, rangeEnd - 1);
     
-    // now use the function call distr(gen) whenever you need a new randon number
-    // for example:
-    int rNum1 = distr(gen);
-    int rNum2 = distr(gen);
-    // these will be two different random numbers
+    VecInt randomVector;
+    for (size_t i = 0; i < n; ++i)
+    {
+        randomVector.push_back(distr(gen));
+    }
+    return randomVector;
 }
-
 // consider using range-based loops for printing
-void printVec(const VecInt& vecInt);
-
+void printVec(const VecInt& vecInt)
+{
+    for (int x : vecInt)
+    {
+        cout << x << endl;
+    }
+}
 typedef std::map<int, size_t> MapInt;
 
 MapInt fillMap(...)
@@ -87,12 +94,57 @@ std::set<int> makeSet(const MapInt& myMap)
 
 // 
 
+//// blue comment
+//// 
+//// 
 
+
+std::unordered_map<int, size_t> makeMap(std::vector<int> vec)
+{
+    std::unordered_map<int, size_t> newMap;
+    // bucket_count, load_factor
+    for (int x : vec)
+    {
+        // use newMap.bucket(element) to get which bucket the new element will use
+        // check the size of this bucket with newMap.bucket_size(bucketIndex)
+        // add element
+        // check the size again
+        
+        
+        // print all stats
+        // print map
+    }
+}
+
+
+
+bool compareAbs(int x, int y)
+{
+    if (std::abs(x) == std::abs(y))
+    {
+        return x < y;
+    }
+    return std::abs(x) < std::abs(y);
+}
 
 int main()
 {
-    int a = 1 + \
-    2;
-    cout << "Hello World!" << endl;
+    cout << "Original\n";
+    VecInt exampleVector = generateVector(15, -5, 5);
+    printVec(exampleVector);
+    
+    cout << "Sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end());
+    printVec(exampleVector);
+
+    cout << "Custom sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end(), compareAbs);
+    printVec(exampleVector);
+    
+    std::vector<std::string> vecString = {"first string", "qwe", "z", "a word", "more words"};
+    for (const std::string& word: vecString)
+    {
+        cout << word << endl;
+    }
     return 0;
 }
