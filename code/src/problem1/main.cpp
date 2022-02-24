@@ -153,6 +153,11 @@ std::set<int> makeSet(const std::map<int, size_t>& m)
 }
 
 
+bool compareAbs(int x, int y)
+{
+    return std::abs(x) < std::abs(y);
+}
+
 // Task 1 solution for regular maps
 std::map<int, size_t> fillMap(const VecInt& vec)
 {
@@ -179,16 +184,12 @@ void printMap(const std::map<int, size_t>& mapToPrint)
     }
 }
 
-bool compareAbs(int x, int y)
-{
-    return std::abs(x) < std::abs(y);
-}
-
 int main()
 {
     cout << "Original\n";
     VecInt exampleVector = generateVector(15, -5, 5);
-    printVec(exampleVector);
+    std::map<int, size_t> mapVariable = fillMap(exampleVector);
+    printMap(mapVariable);
     
     cout << "Sorted\n";
     std::sort(exampleVector.begin(), exampleVector.end());
