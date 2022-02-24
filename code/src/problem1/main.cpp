@@ -77,28 +77,28 @@ void printVec(const VecInt& vecInt)
     
 //}
 
-void printMap(const std::map<int, size_t>& mapInt)
-{
-    for (std::pair<int, size_t> x : mapInt)
-    {
-        x.first;
-        x.second;
-    }
-    for (const std::pair<const int, size_t>& x : mapInt)
-    {
-        x.first;
-        x.second;
-    }
+//void printMap(const std::map<int, size_t>& mapInt)
+//{
+//    for (std::pair<int, size_t> x : mapInt)
+//    {
+//        x.first;
+//        x.second;
+//    }
+//    for (const std::pair<const int, size_t>& x : mapInt)
+//    {
+//        x.first;
+//        x.second;
+//    }
     
-    for (std::map<int, size_t>::const_iterator it = mapInt.cbegin(); it != mapInt.cend(); ++it)
-    {
-        it->first;
-        it->second;
-    }
-    // {}
-    // x.first - key
-    // x.second - value
-}
+//    for (std::map<int, size_t>::const_iterator it = mapInt.cbegin(); it != mapInt.cend(); ++it)
+//    {
+//        it->first;
+//        it->second;
+//    }
+//    // {}
+//    // x.first - key
+//    // x.second - value
+//}
 // for (int x : vec) {}
 
 
@@ -152,6 +152,32 @@ std::set<int> makeSet(const std::map<int, size_t>& m)
     // add keys to set
 }
 
+
+// Task 1 solution for regular maps
+std::map<int, size_t> fillMap(const VecInt& vec)
+{
+    std::map<int, size_t> mapCount;
+    for (int x: vec)
+    {
+        if (mapCount.find(x) == mapCount.end())
+        {
+            mapCount[x] = 1;
+        }
+        else
+        {
+            mapCount[x] += 1;
+        }
+    }
+    return mapCount;
+}
+
+void printMap(const std::map<int, size_t>& mapToPrint)
+{
+    for (const std::pair<const int, size_t>& x : mapToPrint)
+    {
+        cout << x.first << " - " << x.second << endl; 
+    }
+}
 
 bool compareAbs(int x, int y)
 {
