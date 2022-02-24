@@ -60,5 +60,3 @@ more words
 first string
 ```
 
-## Task 6. 
-
