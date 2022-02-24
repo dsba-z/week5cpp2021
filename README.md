@@ -11,7 +11,14 @@ Print them and compare the output of ordered and unordered containers.
 
 ### 4.1
 
-After adding each element to `unordered_map` and `unordered_set`, output their `bucket_count`, `max_bucket_count`, `bucket_size`, `bucket`, `load_factor`. All these parameters are methods you can call from the objects.
+Output paramenters of `unordered_map` when adding objects.
+
+1. Check which bucked the new element will use with `mapVariable.bucket(element)`
+2. Check the size of this bucket with `mapVariable.bucket_size(bucketIndex)`
+3. Add the new element
+4. Check the size again
+5. Print `bucket_count`
+6. Print `load_factor`.
 
 # Additional tasks
 
