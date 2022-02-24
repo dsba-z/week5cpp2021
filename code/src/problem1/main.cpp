@@ -4,6 +4,8 @@
 #include <map>
 #include <set>
 
+#include <algorithm>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -17,15 +19,22 @@ VecInt generateVector(size_t n, int rangeStart, int rangeEnd)
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> distr(rangeStart, rangeEnd - 1);
     
-    // now use the function call distr(gen) whenever you need a new randon number
-    // for example:
-    int rNum1 = distr(gen);
-    int rNum2 = distr(gen);
-    // these will be two different random numbers
+    VecInt randomVector;
+    for (size_t i = 0; i < n; ++i)
+    {
+        randomVector.push_back(distr(gen));
+    }
+    return randomVector;
 }
 
 // consider using range-based loops for printing
-void printVec(const VecInt& vecInt);
+void printVec(const VecInt& vecInt)
+{
+    for (int x : vecInt)
+    {
+        cout << x << endl;
+    }
+}
 
 // https://en.cppreference.com/w/cpp/container/map/find
 
@@ -70,12 +79,12 @@ void printVec(const VecInt& vecInt);
 
 void printMap(const std::map<int, size_t>& mapInt)
 {
-    for (std::pair<int, size_t> x : mapVariable)
+    for (std::pair<int, size_t> x : mapInt)
     {
         x.first;
         x.second;
     }
-    for (const std::pair<const int, size_t>& x : mapVariable)
+    for (const std::pair<const int, size_t>& x : mapInt)
     {
         x.first;
         x.second;
@@ -144,20 +153,29 @@ std::set<int> makeSet(const std::map<int, size_t>& m)
 }
 
 
+bool compareAbs(int x, int y)
+{
+    return std::abs(x) < std::abs(y);
+}
+
 int main()
 {
-    int a = 10;
-    int b = square(a);
+    cout << "Original\n";
+    VecInt exampleVector = generateVector(15, -5, 5);
+    printVec(exampleVector);
     
+    cout << "Sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end());
+    printVec(exampleVector);
+
+    cout << "Custom sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end(), compareAbs);
+    printVec(exampleVector);
     
-    std::map<int, size_t> map1;
-    int key = 0;
-    size_t value = 1;
-//    bool found = checkIndex(map1, key, value);
-    cout << value;
-    
-    std::string buffer;
-    std::getline(cin, buffer);
-    cout << "Hello World!" << endl;
+    std::vector<std::string> vecString = {"first string", "qwe", "z", "a word", "more words"};
+    for (const std::string& word: vecString)
+    {
+        cout << word << endl;
+    }
     return 0;
 }
