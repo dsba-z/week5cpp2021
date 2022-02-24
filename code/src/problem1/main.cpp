@@ -4,6 +4,9 @@
 #include <ctime>
 #include <map>
 #include <set>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
 
 using std::cout;
 using std::cin;
@@ -109,24 +112,30 @@ std::pair<std::multimap<int ,size_t>::iterator,
 // loop through maps:
 // for (const std::pair<const int, size_t>& x : mapCount)
 
-int square(int x)
+bool compareAbs(int x, int y)
 {
-    int y = x*x;
-    return y;
+    return std::abs(x) < std::abs(y);
 }
+
 
 int main()
 {
+    cout << "Original\n";
+    VecInt exampleVector = generateVector(15, -5, 5);
+    printVec(exampleVector);
     
-    for (std::multimap<int, size_t>::iterator it = it1; it != it2; ++it)
+    cout << "Sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end());
+    printVec(exampleVector);
+
+    cout << "Custom sorted\n";
+    std::sort(exampleVector.begin(), exampleVector.end(), compareAbs);
+    printVec(exampleVector);
+    
+    std::vector<std::string> vecString = {"z", "qwe", "a word", "more words"};
+    for (const std::string& word: vecString)
     {
-        
+        cout << word << endl;
     }
-    int a = 3;
-    int b = square(a);
-    
-    VecInt v = generateVector(15, -4, 9);
-    printVec(v);
-    
     return 0;
 }
